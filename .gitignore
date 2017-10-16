@@ -1,0 +1,8 @@
+#Slides
+*.pdf
+
+#token
+*.mat
+
+#OS
+.DS_Store

@@ -53,23 +53,19 @@ end
 
 J = J / 2;
 
-J = J + (lambda / 2) * sum(sum(Theta .^ 2)) + (lambda / 2) * sum(sum(X .^ 2));
-
-
 
 for i = 1 : nm
     idx = find(R(i, :) == 1);
     Thetatmp = Theta(idx, :);
     Ytmp = Y(i, idx);
-    X_grad(i, :) = (X(i,:) * Thetatmp' - Ytmp) * Thetatmp + lambda * X(i, :);
+    X_grad(i, :) = (X(i,:) * Thetatmp' - Ytmp) * Thetatmp;
 end
 
 for j = 1 : nu
     idx = find(R(:,j) == 1);
-    Xtmp = X(idx, :);
+    Xtmp = X(idx, :)
     Ytmp = Y(idx, j);
-    Theta_grad(j, :) = (Xtmp * Theta(j,:)' - Ytmp)' * Xtmp + lambda * Theta(j, :);
-end
+    Theta_grad(j, :) = (X(j, :) * Thetatmp' - Ytmp') * 
 
 
 
